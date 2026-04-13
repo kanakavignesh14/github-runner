@@ -1,0 +1,24 @@
+# what we doing is we creating infra using terraform through github actions piepline 
+#when we commit this a pipeline will trigger and 
+#run terraform commands and create an ec2 
+#after that a runner.sh excute to install all the things like kubectl, eksctl and helm etc
+
+
+name: create runner # workflow name
+on: workflow_dispatch # manuall trigger at github 
+jobs: 
+  create-runner: # job name 
+    runs-on: ubuntu-latest # we using github hosted runner
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6 # we using action (plugin) to clone the terraform repo where our terra code 
+
+      - name: list files
+        run: ls -l
+      # installs latest terraform in the runner
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v3  # installing terraform on github hosted macine using plugin (actions)
+
+    
+
+    

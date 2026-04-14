@@ -6,7 +6,7 @@ resource "aws_instance" "runner" {
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-044782fa53c334ad8" #replace your Subnet
 
-  # need more for terraform
+   # need more for terraform
   root_block_device {
     volume_size = 50
     volume_type = "gp3" # or "gp2", depending on your preference
